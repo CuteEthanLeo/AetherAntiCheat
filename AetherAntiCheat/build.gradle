@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'com.gradleup.shadow' version '8.3.5'
+}
+
+group = 'com.aether'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    // Spigot 1.8.8 API (compatible with Paper 1.8.9)
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+}
+
+processResources {
+    filesMatching('plugin.yml') {
+        expand(project.properties)
+    }
+}
+
+shadowJar {
+    archiveClassifier.set('')
+    minimize()
+}
+
+build {
+    dependsOn shadowJar
+}

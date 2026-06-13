@@ -1,0 +1,31 @@
+name: AetherAntiCheat
+version: ${version}
+main: com.aether.anticheat.AetherAntiCheat
+api-version: "1.13"
+description: Aether AntiCheat - Advanced cheat detection for Paper 1.8.9
+author: AetherTeam
+website: https://github.com/AetherAntiCheat
+
+commands:
+  aether:
+    description: AetherAntiCheat main command
+    usage: /<command> [alerts|debug|info|vl|check|kaai|reset|reload]
+    aliases: [aac]
+  aac:
+    description: AetherAntiCheat alias command
+    usage: /<command> [alerts|debug|info|vl|check|kaai|reset|reload]
+    aliases: [aether]
+
+permissions:
+  aether.alerts:
+    description: Receive anti-cheat alert messages
+    default: op
+  aether.admin:
+    description: Full access to AetherAntiCheat commands
+    default: op
+  aether.bypass:
+    description: Bypass all cheat checks
+    default: false
+  aether.kaai:
+    description: Access to KillAuraAI training data recording commands
+    default: op

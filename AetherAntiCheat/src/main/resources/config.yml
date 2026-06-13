@@ -1,0 +1,139 @@
+# ═══════════════════════════════════════════════════════════
+#            AetherAntiCheat Configuration
+#                  Paper 1.8.9 PvP
+# ═══════════════════════════════════════════════════════════
+
+# Global punishment command
+# Placeholders: %player% = player name, %check% = check name, %vl% = violation level
+punishment-command: "kick %player% [Aether] Unfair advantage detected (%check%)"
+
+# Alert staff with permission "aether.alerts"
+alerts:
+  enabled: true
+
+# Debug mode — logs additional info to console
+debug: false
+
+# Per-check configuration
+checks:
+
+  # ── Movement ──────────────────────────────────────────────
+  speed:
+    enabled: true
+    max-violations: 20
+    punish-command: "kick %player% [Aether] Detected: Speed"
+
+  flya:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyA"
+  flyb:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyB"
+  flyc:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyC"
+  flyd:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyD"
+  flye:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyE"
+  flyf:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyF"
+  flyg:
+    enabled: true
+    punish-command: "kick %player% [Aether] Detected: FlyG"
+
+  longjump:
+    enabled: true
+    max-violations: 12
+    punish-command: "kick %player% [Aether] Detected: LongJump"
+
+  nofall:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: NoFall"
+
+  timer:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: Timer"
+
+  fastclimb:
+    enabled: true
+    max-violations: 8
+    punish-command: "kick %player% [Aether] Detected: FastClimb"
+
+  # ── Combat ────────────────────────────────────────────────
+  killaura:
+    enabled: true
+    max-violations: 15
+    punish-command: "kick %player% [Aether] Detected: KillAura"
+
+  killauraai:
+    enabled: true
+    max-violations: 12
+    punish-command: "kick %player% [Aether] Detected: KillAuraAI"
+    # Model configuration
+    model:
+      # "auto" = use CNN if weights exist, else statistical (RECOMMENDED)
+      # "statistical" = force traditional z-score (even if CNN weights exist)
+      mode: "auto"
+    cnn:
+      sequence-length: 128
+      threshold: 0.55
+      min-sequence-for-inference: 32
+    statistical:
+      threshold: 0.30
+    # Training data recording
+    recording:
+      auto-export-on-stop: true
+      export-directory: "training"
+
+
+  reach:
+    enabled: true
+    max-violations: 12
+    punish-command: "kick %player% [Aether] Detected: Reach"
+
+  antikb:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: AntiKB"
+
+  autoblocka:
+    enabled: true
+    max-violations: 8
+    punish-command: "kick %player% [Aether] Detected: AutoBlockA"
+
+  autoblockb:
+    enabled: true
+    max-violations: 8
+    punish-command: "kick %player% [Aether] Detected: AutoBlockB"
+
+  autoblockc:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: AutoBlockC"
+
+  # ── Player ────────────────────────────────────────────────
+  scaffold:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: Scaffold"
+
+  fastplace:
+    enabled: true
+    max-violations: 8
+    punish-command: "kick %player% [Aether] Detected: FastPlace"
+
+  badpackets:
+    enabled: true
+    max-violations: 5
+    punish-command: "kick %player% [Aether] Detected: BadPackets"
+
+  noslow:
+    enabled: true
+    max-violations: 10
+    punish-command: "kick %player% [Aether] Detected: NoSlow"
